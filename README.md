@@ -1,4 +1,4 @@
-# Car Price Predictions Using Supervised Learning Models
+# Sentiment Analysis of Amazon Reviews on an Electrical Product
 
 # About
 
@@ -15,7 +15,7 @@ Skills Showcased
 
 [View more projects like this!](https://jeff-bow.github.io/)
 
-## Libraries Overview
+# Libraries Overview
 
 The following R libraries will be used for this project:
 
@@ -28,7 +28,7 @@ library(ggplot2)
 library(gridExtra)
 ```
 
-## Preparing the Data
+# Preparing the Data
 
 Before applying the sentiment analysis modelthe dataset needs to be prepared. First, we will remove NA or blank data from the dataset.
 
@@ -39,7 +39,7 @@ reviews <- reviews %>%
   filter(!is.na(reviews))
 ```
 
-### Preprocessing and Stemming Steps
+# Preprocessing and Stemming Steps
 
 In order to avoid repetition in our output of words such as 'work' ('works', 'worked') we can apply stemming to reduce all words to their basic form. We do this by creating a corpus of the column that contains the text of the review.
 
@@ -69,15 +69,11 @@ reviews_sentiment <- reviews %>%
   inner_join(get_sentiments("bing"), by = "word")
 ```
 
-### Data Output
+# Data Output
 
 Once we complete these steps we can start to draw analysis from the dataset. We can first look at the top 10 positive and negative words. It is important to note that due to stemming, words such as 'failure' are also counted in the 'fail' row in the top 10 negative sentiments
 
 ![](images/positivewords.png) ![](images/negativewords.png)
-
-## Creating the Models
-
-### Linear Regression
 
 Having prepared the data we can begin to create simple visuals using the ggplot library. The visual created is a side by side comparison of the top 10 positive and top 10 negative words used in the reviews, and the frequency in which they occur. 
 
